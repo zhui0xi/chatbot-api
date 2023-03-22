@@ -12,8 +12,8 @@
     <modules>
         <module>chatbot-api-domain</module>
         <module>chatbot-api-application</module>
-        <module>chatgpt-api-interfaces</module>
         <module>chatbot-api-infrastructure</module>
+        <module>chatbot-api-interfaces</module>
     </modules>
 
     <parent>
