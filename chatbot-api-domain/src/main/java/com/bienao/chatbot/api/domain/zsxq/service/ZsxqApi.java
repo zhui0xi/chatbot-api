@@ -25,10 +25,11 @@ import java.io.IOException;
 @Service
 public class ZsxqApi implements IZsxqApi {
 
-    private Logger logger = (Logger) LoggerFactory.getLogger(ZsxqApi.class);
+    private Logger logger = LoggerFactory.getLogger(ZsxqApi.class);
 
     /**
-     * 拉取提问数据
+     * 爬取问题数据
+     *
      * @param groupId
      * @param cookie
      * @return
@@ -57,6 +58,7 @@ public class ZsxqApi implements IZsxqApi {
 
     /**
      * 回答问题
+     *
      * @param groupId
      * @param cookie
      * @param topicId
@@ -75,6 +77,7 @@ public class ZsxqApi implements IZsxqApi {
 
         post.addHeader("cookie", "知识星球个人cookie信息");
         post.addHeader("Content-Type", "application/json;charset=utf8");
+        post.addHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.51");
 
         /* 测试
         String paramJson = "{\n" +
