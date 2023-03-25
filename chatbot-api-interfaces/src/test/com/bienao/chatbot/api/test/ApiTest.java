@@ -21,7 +21,7 @@ public class ApiTest {
     // 使用知识星球来提供问答的页面
 
     /**
-     * 抓取问题
+     * 抓取知识星球的问题
      * @throws IOException
      */
     @Test
@@ -44,7 +44,7 @@ public class ApiTest {
     }
 
     /**
-     * 回答问题
+     * 回答知识星球的问题
      * @throws IOException
      */
     @Test
@@ -75,6 +75,37 @@ public class ApiTest {
         } else {
             System.out.println(response.getStatusLine().getStatusCode());
         }
+    }
+
+    /**
+     * 调用OpenAI API
+     * @throws IOException
+     */
+    @Test
+    public void test_chatGPT() throws IOException {
+
+        CloseableHttpClient httpClient = HttpClientBuilder.create().build();
+
+        HttpPost post = new HttpPost("https://api.openai.com/v1/completions");
+        post.addHeader("Content-Type", "application/json");
+        // post.addHeader("Authorization", "Bearer apiKey");
+        post.addHeader("Authorization", "Bearer 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");
+
+        // String paramJson = "{\"model\": \"text-davinci-003\", \"prompt\": \"问题文本 \", \"temperature\": 0, \"max_tokens\": 1024}";
+        String paramJson = "{\"model\": \"text-davinci-003\", \"prompt\": \"怎么使用java来调用openai API \", \"temperature\": 0, \"max_tokens\": 1024}";
+
+        StringEntity stringEntity = new StringEntity(paramJson, ContentType.create("text/json", "UTF-8"));
+        post.setEntity(stringEntity);
+
+        CloseableHttpResponse response = httpClient.execute(post);
+        if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+            String res = EntityUtils.toString(response.getEntity());
+            System.out.println(res);
+        } else {
+            System.out.println(response.getStatusLine().getStatusCode());
+        }
+
+
     }
 
 }
