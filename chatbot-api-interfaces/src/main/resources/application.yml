@@ -4,4 +4,4 @@ server:
 chatbot-api:
   groupId:
   cookie:
-  openAiKey: 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
+  openAiKey:
