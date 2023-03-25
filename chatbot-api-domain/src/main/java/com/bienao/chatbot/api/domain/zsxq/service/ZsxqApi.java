@@ -56,7 +56,7 @@ public class ZsxqApi implements IZsxqApi {
     }
 
     /**
-     * 回答问题结果
+     * 回答问题
      * @param groupId
      * @param cookie
      * @param topicId

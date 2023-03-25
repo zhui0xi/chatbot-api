@@ -1,7 +1,7 @@
 package com.bienao.chatbot.api.domain.zsxq.model.res;
 
 /**
- * 回答问答接口结果
+ * 请求问答接口结果
  */
 public class AnswerRes {
 
