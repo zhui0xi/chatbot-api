@@ -40,7 +40,7 @@ public class ZsxqApi implements IZsxqApi {
 
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
-        //HttpGet get = new HttpGet("https://api.zsxq.com/v2/groups/48411118851818/topics?scope=unanswered_questions&count=20");
+        // HttpGet get = new HttpGet("https://api.zsxq.com/v2/groups/" + groupId + "/topics?scope=unanswered_questions&count=20");
         HttpGet get = new HttpGet("知识星球的 等我回答 的请求地址");
 
         get.addHeader("cookie", "知识星球个人cookie信息");
@@ -72,11 +72,12 @@ public class ZsxqApi implements IZsxqApi {
 
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 
-        //HttpPost post = new HttpPost("https://api.zsxq.com/v2/topics/412884248251548/answer");
+        // HttpPost post = new HttpPost("https://api.zsxq.com/v2/topics/" + topicId + "/answer");
         HttpPost post = new HttpPost("知识星球的  回答该问题 的请求地址");
 
-        post.addHeader("cookie", "知识星球个人cookie信息");
+        post.addHeader("cookie", cookie);
         post.addHeader("Content-Type", "application/json;charset=utf8");
+        // 用户代理
         post.addHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.51");
 
         /* 测试
